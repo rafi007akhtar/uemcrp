@@ -121,6 +121,10 @@
                             <input type="number" id="sem" class="form-control" placeholder="[replace by current sem number (01-08); this field cannot be edited by student]" disabled />
                         </div>
                         
+                        <div class="form-group">
+                            <label for="sec">Current section</label>
+                            <input type="text" id="sec" class="form-control" placeholder="[replace by current sem section; this field cannot be edited by student]" disabled />
+                        </div>                        
                         
                     </form>
                     <br>
@@ -161,7 +165,7 @@
                         
                         <div class="form-group">
                             <label for="blood">Blood group</label>
-                            <select class="form-control">
+                            <select class="form-control" id="blood">
                                 <option value="">Select</option>
                                 <option value="a+">A+</option>
                                 <option value="a-">A-</option>
@@ -264,11 +268,95 @@
                             <input type="text" id="guard-relation" class="form-control"  placeholder="[replace by guardian relation]" />
                         </div>
                         
-                        <div class="form-group" class="text-right">
-                            <input type="submit" value="Save changes" class="btn btn-success" />
+                        <div class="form-group text-right">
+                            <input type="submit" value="Save Changes" class="btn btn-success"/>
                         </div>
                         
                     </form>
+                    <br>
+                    
+                    <form method="" action="">
+                        <h2>Academic Details</h2>
+                        
+                        <div class="form-group">
+                            <label for="stream-id">Stream id</label>
+                            <input type="number" id="stream-id" class="form-control"  placeholder="[replace by stream id; this field cannot be chaneged by student]" disabled />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="course-id">Course id</label>
+                            <input type="number" id="course-id" class="form-control"  placeholder="[replace by course id; this field cannot be chaneged by student]" disabled />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="ten-school">10th school name</label>
+                            <input type="text" id="ten-school" class="form-control"  placeholder="[replace by 10th school name]" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="ten-per">10th board pecentage</label>
+                            <input type="number" id="ten-per" class="form-control"  placeholder="[replace by 10th board percentage]" max="100" min="0" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="ten-yop">10th year of passing</label>
+                            <input type="number" id="ten-yop" class="form-control"  placeholder="[replace by 10th yop]" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="ten-board">10th board name</label>
+                            <input type="text" id="ten-board" class="form-control"  placeholder="[replace by 10th board name]" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="twelve-school">12th school name</label>
+                            <input type="text" id="twelve-school" class="form-control"  placeholder="[replace by 12th school name]" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="twelve-per">12th board pecentage</label>
+                            <input type="number" id="twelve-per" class="form-control"  placeholder="[replace by 12th board percentage]" max="100" min="0" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="twelve-yop">12th year of passing</label>
+                            <input type="number" id="twelve-yop" class="form-control"  placeholder="[replace by 12th yop]" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="twelve-board">12th board name</label>
+                            <input type="text" id="twelve-board" class="form-control"  placeholder="[replace by 12th board name]" />
+                        </div>
+                        
+                        <div class="form-group text-right">
+                            <input type="submit" value="Save Changes" class="btn btn-success"/>
+                        </div>
+                    </form>
+                    <br>
+                    
+                    <form method="" action="">
+                        <h2>Other details</h2>
+                        
+                        <div class="form-group">
+                            <label for="aadhar">Aadhar number</label>
+                            <input type="numbber" id="aadhar" class="form-control"  placeholder="[replace by aadhar number]" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select class="form-control" id="category">
+                                <option value="">Select</option>
+                                <option value="general">General</option>
+                                <option value="obc">OBC</option>
+                                <option value="scst">SC / ST</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group text-right">
+                            <input type="submit" value="Save Changes" class="btn btn-success"/>
+                        </div>
+                    </form>
+                    <br>
                 </div>
             </div>
             
@@ -276,14 +364,7 @@
 
         
         </div>
-        
-        
-        
-        
-        
-        
-    
-        
+          
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
