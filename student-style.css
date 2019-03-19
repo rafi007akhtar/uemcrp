@@ -12,8 +12,9 @@
 }
 */
 #body {
-    background-color: #c1e0de;
+/*    min-height: 100vh;*/
 }
+
 .wrapper {
     display: flex;
     align-items: stretch;
