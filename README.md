@@ -53,13 +53,17 @@ And now you should be good to go.
 	python manage.py runserver
 	```
 	If that command didn't work, try replacing `python` with `python3`, keeping rest of the command intact.
+	
+	The above 3 steps are visualized below in a Linux terminal.
+	![terminal](screenshots/terminal.png)
 
 5. Open your web-browser and go to the following URL:
 	```
 	http://127.0.0.1:8000/
 	```
 
-The app is now up and running.
+The app is now up and running, and should look like this.
+![app running](screenshots/run.png)
 
 ## Sample login
 
@@ -67,4 +71,12 @@ The following credentials are made by me for sample login.
 - `user-id:` 12345678
 - `password:` rafi1234
 
-Enter the above credentials to login.
+Enter the above credentials, as shown below.
+![credentials](screenshots/credentials.png)
+
+Now hit the `SUBMIT` button to login.
+
+On logging, the page should look like this (for now; more features coming soon).
+![post login page](screenshots/home.png)
+
+---
