@@ -28,34 +28,33 @@
         <h2>Basic Details</h2>
         <div class="form-group">
             <label for="enrol">Enrollment number</label>
-            <input type="number" id="enrol" class="form-control" placeholder="[replace by enrollment number; this field cannot be edited by student]" disabled />
+            <input type="number" id="enrol" class="form-control" placeholder="{{ user.enrollment_number }}" disabled />
         </div>
         
         <div class="form-group">
             <label for="regn">Registration number</label>
-            <input type="number" id="regn" class="form-control" placeholder="[replace by regn number; this field cannot be edited by student]" disabled />
+            <input type="number" id="regn" class="form-control" placeholder="{{ user.registration_number }}" disabled />
         </div>
         
         <div class="form-group">
             <label for="exam-roll">Exam roll number</label>
-            <input type="number" id="exam-roll" class="form-control" placeholder="[replace by exam roll number; this field cannot be edited by student]" disabled />
+            <input type="number" id="exam-roll" class="form-control" placeholder="{{ user.roll_number }}" disabled />
         </div>
         
         <div class="form-group">
             <label for="adm">Admission year</label>
-            <input type="number" id="adm" class="form-control" placeholder="[replace by admission year; this field cannot be edited by student]" disabled />
+            <input type="number" id="adm" class="form-control" placeholder="{{ user.admission_year }}" disabled />
         </div>
         
         <div class="form-group">
             <label for="sem">Current semester</label>
-            <input type="number" id="sem" class="form-control" placeholder="[replace by current sem number (01-08); this field cannot be edited by student]" disabled />
+            <input type="number" id="sem" class="form-control" placeholder="{{ user.current_semester }}" disabled />
         </div>
         
         <div class="form-group">
             <label for="sec">Current section</label>
-            <input type="text" id="sec" class="form-control" placeholder="[replace by current sem section; this field cannot be edited by student]" disabled />
+            <input type="text" id="sec" class="form-control" placeholder="{{ user.current_section }}" disabled />
         </div>                        
-        
     </form>
     <br>
     
