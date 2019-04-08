@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . import models
+from django.contrib.auth import logout
 
 # utility functions
 import random
@@ -50,4 +51,8 @@ def index(request):
 
 def account(request):
 	return render(request, "student/student-account.html")
+
+def logout_view(request):
+	logout(request)
+	return redirect("home")
 

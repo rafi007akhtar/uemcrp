@@ -76,7 +76,9 @@
                         
                         <ul class="list-unstyled components">
                             <li>
-                                <button class="btn btn-primary">LOGOUT</button>
+                                <button class="btn btn-primary" onclick="alert('Thank you for visiting UEMCRP! You will now be redirected to home.');">
+                                    <a href="{% url 'student:student_logout' %}" style="color: white">LOGOUT</a>
+                                </button>
                             </li>
                         </ul>
 

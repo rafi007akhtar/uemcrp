@@ -23,7 +23,7 @@ from . import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url("^$", views.index),
+    url("^$", views.index, name="home"),
     url(r"student/", include("student.urls"))
 ]
 
