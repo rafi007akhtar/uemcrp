@@ -1,18 +1,22 @@
+{% load static from staticfiles %}
+
 <!DOCTYPE html>
 
 <html>
     <head>
-        <title></title>
+		{% block titleblock %} 
+		{% endblock %} 
        
-        <link rel="stylesheet" href="student-style.css">
+        <link rel="stylesheet" href="/static/student-style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
+        
+		{% block styleblock %}
+		{% endblock %}
 
     </head>
     
     <body>
-        <!-- SIDEBAR TOGGLE -->
         
 
         <div class="wrapper">
@@ -24,29 +28,13 @@
                 
             <img src="#" alt="display picture of student goes here" width="100%" />
 
-
             <ul class="list-unstyled components">
-                <li class="menu-item">
-                    <a href="student-home.html">Home</a>
-<!--
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>
--->
+                <li class="menu-item active">
+                    <a href="{% url 'student:student_home' %}">Home</a>
                 </li>
-                
                 <li class="menu-item">
-                    <a href="student-account.html">Account</a>
+                    <a href="{% url 'student:student_account' %}">Account</a>
                 </li>
-                
                 <li class="menu-item">
                     <a href="#">Display Semester Marks</a>
                 </li>
@@ -74,23 +62,7 @@
                 <li class="menu-item">
                     <a href="#">Payment Details</a>
                 </li>
-            
-<!--
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
-                </li>
--->
+
             </ul>
             </nav>
             
@@ -111,9 +83,10 @@
                     </div>
                 </nav>
                 
-                <div id="body" class="container-fluid">
+                <div id="body" class="container-fluid navbar-light bg-light">
                     <!-- REST OF THE BODY GOES HERE -->
-                    
+					{% block bodyblock %}
+					{% endblock %}
                 </div>
             </div>
             
@@ -121,26 +94,12 @@
 
         
         </div>
-        
-        
-        
-        
-        
-        
-    
-        
+          
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#sidebarCollapse').on('click', function () {
-                    $('#sidebar').toggleClass('active');
-                    $(this).toggleClass('active');
-                });
-            });
-        </script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		
+		{% block scriptblock %} {% endblock %}
     </body>
 </html>

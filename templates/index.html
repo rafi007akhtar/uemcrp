@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>UEM-CRP</title>
+        
+        <style>
+            p {
+                text-align: justify;
+            }
+            
+            #body {
+                background-color: beige;
+            }
+            #log-body {
+                background-color: aliceblue;
+            }
+            #log-head {
+                background-color: aquamarine;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+            #ben {
+                background-color: brown;
+                color: aliceblue;
+            }
+        </style>
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    
+    <body id="body" class="container-fluid">
+        <h1 class="text-center">UEM-CRP</h1>
+        
+        <div class="row">
+            <div class="col-xs-12 col-md-8">
+                <div id="log-head" class="text-center">LOGIN</div>
+                <div>
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <!-- <div class="form-control">
+                            <label for="user-type">Type of user:</label>
+                            <select id="user-type">
+                                <option value="student">Student</option>
+                                <option value="faculty">Faculty</option>
+                                <option value="Accountant">Accountant</option>
+                                <option value="Admin">Admin</option>
+                            </select>
+                        </div>  -->
+
+                        {{ form }}
+                        
+                        <div class="text-center">
+                            <br>
+                            <input type="submit" class="btn btn-primary col" />
+                        </div>
+                    </form>
+                    <br>
+                    
+                    <h3>About UEM-CRP</h3>
+                    <p>
+                        <em>College Resource Planning</em> website for University of Engineering and Management, Kolkata.
+                    </p>
+                    <p>
+                        The concept of Academic ERP aims not only at achieving operational excellence in Institutions, but also make its stakeholders, the beneficiaries of the system. As Academic ERP concept provides number of options through which, an Institution can share the information stored with the parents and other stakeholders and make them feel to be a part of the Institution itself.
+                    </p>
+                    <p>
+                        The University / Board / Council can have all the details along with the marks of the previous classes, of a student, who is appearing for the University / Board / Council examination. 
+                        It includes the number of modules, proved beneficial to achieve the operational and functional efficiencies, monitoring and optimizing the management processes & operations and enhancing coordination across the various departments in the Institution.
+                    </p>
+                    
+                    Link: <a href="student-home.html">student home</a>
+                </div>
+                <br>
+                
+            </div>
+            
+            <div class="col-xs-12 col-md-4 container" id="ben">
+                Benefits of College Resource Planning
+                
+                <ul>
+                    <li>	Online application for admission</li>
+                    <li>	Student Registration &amp; Admission </li>
+                    <li>	Student Identity Card generation </li>
+                    <li>	Student Health Card generation </li>
+                    <li>	Fee Collection </li>
+                    <li>	Student Attendance</li>
+                    <li>	Library Management </li>
+                    <li>	Examination Management</li>
+                    <li>	Online Examination</li>
+                    <li>	Result Processing </li>
+                    <li>	Result Analysis </li>
+                    <li>	Campus Recruitment &amp; Training</li>
+                    <li>	Alumni</li>
+                    <li>	Assets Management</li>
+                    <li>	Notice Management</li>
+                    <li>	Information Management ( SMS/Email System)</li>
+                    <li>	Staff Personal resume generation</li>
+                    <li>	Payroll Management with Form16</li>
+                </ul>
+            </div>
+            
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+        </script>
+
+        <script>
+            $("input").addClass("form-control");
+            $("#id_username").attr("placeholder", "Enter your id");
+            $("#id_password").attr("placeholder", "Enter password");
+        </script>
+    </body>
+</html>

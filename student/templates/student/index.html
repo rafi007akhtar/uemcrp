@@ -1,0 +1,279 @@
+{% extends 'student/student_template.html' %}
+
+{% block titleblock %} 
+    <title>Student Home</title>
+{% endblock %} 
+        
+{% block styleblock %}
+    <style>
+        #content {
+            margin-left: -15px;
+        }
+        
+        h2 {
+            border-bottom: 1px solid;
+        }
+    </style>
+    
+{% endblock %}
+
+    
+{% block bodyblock %}
+                
+    <h1>Welcome, [replace by name]</h1>
+    
+    <br>
+    
+    <form method="get" action="">
+        <h2>Basic Details</h2>
+        <div class="form-group">
+            <label for="enrol">Enrollment number</label>
+            <input type="number" id="enrol" class="form-control" placeholder="[replace by enrollment number; this field cannot be edited by student]" disabled />
+        </div>
+        
+        <div class="form-group">
+            <label for="regn">Registration number</label>
+            <input type="number" id="regn" class="form-control" placeholder="[replace by regn number; this field cannot be edited by student]" disabled />
+        </div>
+        
+        <div class="form-group">
+            <label for="exam-roll">Exam roll number</label>
+            <input type="number" id="exam-roll" class="form-control" placeholder="[replace by exam roll number; this field cannot be edited by student]" disabled />
+        </div>
+        
+        <div class="form-group">
+            <label for="adm">Admission year</label>
+            <input type="number" id="adm" class="form-control" placeholder="[replace by admission year; this field cannot be edited by student]" disabled />
+        </div>
+        
+        <div class="form-group">
+            <label for="sem">Current semester</label>
+            <input type="number" id="sem" class="form-control" placeholder="[replace by current sem number (01-08); this field cannot be edited by student]" disabled />
+        </div>
+        
+        <div class="form-group">
+            <label for="sec">Current section</label>
+            <input type="text" id="sec" class="form-control" placeholder="[replace by current sem section; this field cannot be edited by student]" disabled />
+        </div>                        
+        
+    </form>
+    <br>
+    
+    <form method="" action="">
+        <h2>Personal Details</h2>
+        
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" class="form-control" placeholder="[replace by name; this field cannot be edited by student]" disabled />
+        </div>
+        
+        <div class="form-group">
+            <label for="dob">Date of birth</label>
+            <input type="date" id="dob" class="form-control"  />
+        </div>
+        
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <input type="text" id="gender" class="form-control" placeholder="[replace by male/female/others; this option cannot be edited by student]"  />
+        </div>                     
+        
+        
+        <div class="form-group">
+            <label for="mother-name">Mother's name</label>
+            <input type="text" id="mother-name" class="form-control"  placeholder="[replace by mother's name]" />
+        </div>
+        
+        <div class="form-group">
+            <label for="father-name">Father's name</label>
+            <input type="text" id="father-name" class="form-control"  placeholder="[replace by father's name]" />
+        </div>
+        
+        <div class="form-group">
+            <label for="guardian-name">Guradian's name</label>
+            <input type="text" id="guardian-name" class="form-control"  placeholder="[replace by guardian's name]" />
+        </div>
+        
+        <div class="form-group">
+            <label for="blood">Blood group</label>
+            <select class="form-control" id="blood">
+                <option value="">Select</option>
+                <option value="a+">A+</option>
+                <option value="a-">A-</option>
+                <option value="b+">B+</option>
+                <option value="b-">B-</option>
+                <option value="ab+">AB+</option>
+                <option value="ab-">AB-</option>
+                <option value="o+">O+</option>
+                <option value="o-">O-</option>
+            </select>
+        </div>
+        
+        <div class="form-group text-right">
+            <input type="submit" value="Save Changes" class="btn btn-success"/>
+        </div>
+    </form>
+    <br>
+    
+    <form method="" action="">
+        <h2>Contact details</h2>
+        
+        <div class="form-group">
+            <label for="email">Email id</label>
+            <input type="email" id="email" class="form-control"  placeholder="[replace by email]" />
+        </div>
+        
+        <div class="form-group">
+            <label for="mobile">Mobile number</label>
+            <input type="email" id="mobile" class="form-control"  placeholder="[replace by mobile number]" />
+        </div>
+
+        <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" id="country" class="form-control"  placeholder="[replace by country]" />
+        </div>
+        
+        <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" id="state" class="form-control"  placeholder="[replace by state]" />
+        </div>
+        
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" class="form-control"  placeholder="[replace by city]" />
+        </div>
+        
+        <div class="form-group">
+            <label for="pin">Pin code</label>
+            <input type="number" id="pin" class="form-control"  placeholder="[replace by pin]" />
+        </div>
+        
+                                
+        <div class="form-group">
+            <label for="address1">Address</label>
+            <input type="text" id="address1" class="form-control"  placeholder="[replace by address 1]" />
+        </div>
+        
+        <div class="form-group">
+            <label for="paddress1">Permanent address</label>
+            <input type="text" id="paddress1" class="form-control"  placeholder="[replace by paddress 1]" />
+        </div>
+        
+        
+        <div class="form-group">
+            <label for="guard-email">Guardian email</label>
+            <input type="email" id="guard-email" class="form-control"  placeholder="[replace by guardian email]" />
+        </div>
+        
+        <div class="form-group">
+            <label for="guard-mobile">Guardian mobile</label>
+            <input type="mobile" id="guard-mobile" class="form-control"  placeholder="[replace by guardian mobile; this field cannot be edited by student]" disabled />
+        </div>
+        
+        <div class="form-group">
+            <label for="guard-relation">Guardian relation</label>
+            <input type="text" id="guard-relation" class="form-control"  placeholder="[replace by guardian relation]" />
+        </div>
+        
+        <div class="form-group text-right">
+            <input type="submit" value="Save Changes" class="btn btn-success"/>
+        </div>
+        
+    </form>
+    <br>
+    
+    <form method="" action="">
+        <h2>Academic Details</h2>
+        
+        <div class="form-group">
+            <label for="stream-id">Stream id</label>
+            <input type="number" id="stream-id" class="form-control"  placeholder="[replace by stream id; this field cannot be chaneged by student]" disabled />
+        </div>
+        
+        <div class="form-group">
+            <label for="course-id">Course id</label>
+            <input type="number" id="course-id" class="form-control"  placeholder="[replace by course id; this field cannot be chaneged by student]" disabled />
+        </div>
+        
+        <div class="form-group">
+            <label for="ten-school">10th school name</label>
+            <input type="text" id="ten-school" class="form-control"  placeholder="[replace by 10th school name]" />
+        </div>
+        
+        <div class="form-group">
+            <label for="ten-per">10th board pecentage</label>
+            <input type="number" id="ten-per" class="form-control"  placeholder="[replace by 10th board percentage]" max="100" min="0" />
+        </div>
+        
+        <div class="form-group">
+            <label for="ten-yop">10th year of passing</label>
+            <input type="number" id="ten-yop" class="form-control"  placeholder="[replace by 10th yop]" />
+        </div>
+        
+        <div class="form-group">
+            <label for="ten-board">10th board name</label>
+            <input type="text" id="ten-board" class="form-control"  placeholder="[replace by 10th board name]" />
+        </div>
+        
+        <div class="form-group">
+            <label for="twelve-school">12th school name</label>
+            <input type="text" id="twelve-school" class="form-control"  placeholder="[replace by 12th school name]" />
+        </div>
+        
+        <div class="form-group">
+            <label for="twelve-per">12th board pecentage</label>
+            <input type="number" id="twelve-per" class="form-control"  placeholder="[replace by 12th board percentage]" max="100" min="0" />
+        </div>
+        
+        <div class="form-group">
+            <label for="twelve-yop">12th year of passing</label>
+            <input type="number" id="twelve-yop" class="form-control"  placeholder="[replace by 12th yop]" />
+        </div>
+        
+        <div class="form-group">
+            <label for="twelve-board">12th board name</label>
+            <input type="text" id="twelve-board" class="form-control"  placeholder="[replace by 12th board name]" />
+        </div>
+        
+        <div class="form-group text-right">
+            <input type="submit" value="Save Changes" class="btn btn-success"/>
+        </div>
+    </form>
+    <br>
+    
+    <form method="" action="">
+        <h2>Other details</h2>
+        
+        <div class="form-group">
+            <label for="aadhar">Aadhar number</label>
+            <input type="numbber" id="aadhar" class="form-control"  placeholder="[replace by aadhar number]" />
+        </div>
+        
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select class="form-control" id="category">
+                <option value="">Select</option>
+                <option value="general">General</option>
+                <option value="obc">OBC</option>
+                <option value="scst">SC / ST</option>
+            </select>
+        </div>
+        
+        <div class="form-group text-right">
+            <input type="submit" value="Save Changes" class="btn btn-success"/>
+        </div>
+    </form>
+    <br> 
+
+{% endblock %}
+        
+{% block scriptblock %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+{% endblock %}
+

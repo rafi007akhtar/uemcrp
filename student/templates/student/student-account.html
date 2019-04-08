@@ -1,0 +1,68 @@
+{% extends 'student/student_template.html' %}
+
+{% block titleblock %}
+    <title>Account</title>
+{% endblock %}
+
+{% block styleblock %}
+    <style>
+        h2 {
+            border-bottom: 1px solid;
+        }
+    </style>
+{% endblock %}
+
+    
+{% block bodyblock %}
+    <h1>Welcome, [user-name]</h1>
+    
+    <form action="" method="" onsubmit="return validatePassword();">
+        <h2>Account Details</h2>
+        
+        <fieldset>
+            <label for="uname">User name</label>
+            <input type="text" placeholder="[replace by username; this field is not editable]" class="form-control" id="uname" disabled />
+        </fieldset>
+        <br>
+        
+        <strong>Change password</strong> <br>
+        <fieldset>
+            <label for="oldpass">Old password</label>
+            <input type="password" id="oldpass" class="form-control" required />
+        </fieldset> <br>
+        <fieldset>
+            <label for="newpass">New password</label>
+            <input type="password" id="newpass" class="form-control" required />
+        </fieldset> <br>
+        <fieldset>
+            <label for="confirmpass">Confirm new password</label>
+            <input type="password" id="confirmpass" class="form-control" required />
+        </fieldset> <br>
+        
+        <input type="submit" value="Change password" class="btn btn-danger" />
+    </form>
+
+{% endblock %}
+            
+{% block scriptblock %}    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+        
+        function validatePassword() {
+            let newpass = $("#newpass");
+            let confirmpass = $("#confirmpass");
+            console.log(newpass[0].value + "\n" + confirmpass[0].value);
+            console.log(newpass[0].value == confirmpass[0].value)
+            if (newpass[0].value != confirmpass[0].value) {
+                alert("Error: Passwords do not match.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+{% endblock %}
