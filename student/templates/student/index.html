@@ -17,6 +17,15 @@
     
 {% endblock %}
 
+{% block insertpic %}    
+    <form method="post" action="{ url 'student:student_home' }" enctype="multipart/form-data">
+        {% csrf_token %}
+        <img src="" id="pro-pic" alt="Profile picture" width="100%" />
+        {{ pro_pic.pic }}
+        <input type="submit" value="Upload image" class="btn btn-block btn-primary" />
+    </form>
+{% endblock %}
+
     
 {% block bodyblock %}
                 
@@ -279,6 +288,16 @@
         $("label").prepend("<br>");
         $("#id_DOB").removeAttr("type");
         $("#id_DOB").attr("type", "date");
+
+        let a = $("a");
+        let a0 = a[0];
+        let proPic = $("#pro-pic");
+        proPic.attr("src", a0.href);
+        a0.innerText = "Click to enlarge";
+        a0.style = "color:green; background-color: white; text-decoration: underline;"
+        
+        $("#pic-clear_id").hide();
+        $("label[for='pic-clear_id'").hide();
     </script>
 {% endblock %}
 
