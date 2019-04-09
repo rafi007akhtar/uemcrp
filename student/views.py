@@ -60,8 +60,9 @@ def index(request):
 			# saving first time
 			formP = PersonalDetailsForms(request.POST)
 			if formP.is_valid():
-				formP.save(commit = False)
+				formP = formP.save(commit = False)
 				formP.enrollment_number = int(request.user.username)
+				print(f"{formP.enrollment_number}, {type(formP.enrollment_number)}, {request.user.username}, {type(request.user.username)}")
 				formP.save()
 		
 		# Profile Pic
@@ -73,7 +74,7 @@ def index(request):
 		except:
 			pro_pic = ProfilePicForm(request.POST, request.FILES)
 			if pro_pic.is_valid():
-				pro_pic.save(commit = False)
+				pro_pic =  pro_pic.save(commit = False)
 				pro_pic.enrollment_number = int(request.user.username)
 				pro_pic.save()
 		

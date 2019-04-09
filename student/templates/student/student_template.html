@@ -30,7 +30,7 @@
             <!-- <img src="#" alt="Picture not uploaded" width="100%" /> -->
             <!-- <input type="file" value="Upload image" class="btn btn-block btn-primary" /> -->
                 {% csrf_token %}
-                <img src="{{ pro_pic.pic }}" />
+                <img src="{{ pro_pic.pic.url }}" />
                 {{ pro_pic }}
                 <input type="submit" value="Upload image" class="btn btn-block btn-primary" />
             </form>
