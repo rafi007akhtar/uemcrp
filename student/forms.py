@@ -26,3 +26,13 @@ class ProfilePicForm(forms.ModelForm):
 	class Meta:
 		model = models.ProfilePic
 		fields = ["pic"]
+
+class ContactDetailsForm(forms.ModelForm):
+	class Meta:
+		model = models.ContactDetails
+		fields = [
+			"email_id", "mobile_number", "country",
+			"state", "city", "pin_code", "address",
+			"permanent_address", "guardian_email",
+			"guardian_mobile", "guardian_relation"
+		]

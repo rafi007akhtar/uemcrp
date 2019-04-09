@@ -6,3 +6,4 @@ from .models import *
 admin.site.register(BasicDetails)
 admin.site.register(PersonalDetails)
 admin.site.register(ProfilePic)
+admin.site.register(ContactDetails)

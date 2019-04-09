@@ -20,6 +20,20 @@ class PersonalDetails(models.Model):
 	name_guardian = models.CharField(max_length = 100)
 	blood_group = models.CharField(max_length = 2)
 
+class ContactDetails(models.Model):
+	enrollment_number = models.IntegerField(default = 0)
+	email_id = models.EmailField(max_length = 50)
+	mobile_number = models.IntegerField()
+	country = models.CharField(default = "India", max_length = 100)
+	state = models.CharField(max_length = 50)
+	city = models.CharField(max_length = 50)
+	pin_code = models.IntegerField()
+	address = models.CharField(max_length = 200)
+	permanent_address = models.CharField(max_length = 200)
+	guardian_email = models.EmailField()
+	guardian_mobile = models.IntegerField()
+	guardian_relation = models.CharField(max_length = 20)
+
 
 class ProfilePic(models.Model):
 	enrollment_number = models.IntegerField(default = 0)

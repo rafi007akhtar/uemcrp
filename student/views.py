@@ -65,6 +65,19 @@ def index(request):
 				print(f"{formP.enrollment_number}, {type(formP.enrollment_number)}, {request.user.username}, {type(request.user.username)}")
 				formP.save()
 		
+		# Contact Details
+		try:
+			contact = ContactDetails.objects.get(enrollment_number = int(request.user.username))
+			formC = ContactDetailsForm(request.POST, instance = contact)
+			if formC.is_valid():
+				formC.save()
+		except:
+			formC = ContactDetailsForm(request.POST)
+			if formC.is_valid():
+				formC = formC.save(commit = False)
+				formC.enrollment_number = int(request.user.username)
+				formC.save()
+		
 		# Profile Pic
 		try: 
 			picture = ProfilePic.objects.get(enrollment_number = int(request.user.username))
@@ -93,8 +106,15 @@ def index(request):
 		except:
 			pro_pic = ProfilePicForm()
 
+		# Contact Details
+		try:
+			contact = ContactDetails.objects.get(enrollment_number = int(request.user.username))
+			formC = ContactDetailsForm(instance = contact)
+		except:
+			formC = ContactDetailsForm()
 
-	return render(request, "student/index.html", {"user": curr_user, "formP": formP, "pro_pic": pro_pic})
+	dici = {"user": curr_user, "formP": formP, "pro_pic": pro_pic, "formC": formC}
+	return render(request, "student/index.html", dici)
 
 def account(request):
 	return render(request, "student/student-account.html")
