@@ -78,7 +78,7 @@ def index(request):
 				pro_pic.enrollment_number = int(request.user.username)
 				pro_pic.save()
 		
-	else:
+	else:  # GET actions
 		# Personal Details
 		try:	
 			personal = PersonalDetails.objects.get(enrollment_number = int(request.user.username))
