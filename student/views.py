@@ -28,7 +28,8 @@ def section():
 	return sec[ind]
 
 # Create your views here.
-from student.models import BasicDetails
+from student.models import *
+from student.forms import *
 
 def index(request):
 	# fetch the basic details of the student logged in
@@ -46,8 +47,53 @@ def index(request):
 		curr_user.current_semester = semester()
 		curr_user.current_section = section()
 		curr_user.save()
+	
+	if request.method == "POST":
+		# Personal Details
+		try:
+			# if already saved
+			personal = PersonalDetails.objects.get(enrollment_number = int(request.user.username))
+			formP = PersonalDetailsForms(request.POST, instance = personal)
+			if formP.is_valid():
+				formP.save()
+		except:
+			# saving first time
+			formP = PersonalDetailsForms(request.POST)
+			if formP.is_valid():
+				formP.save(commit = False)
+				formP.enrollment_number = int(request.user.username)
+				formP.save()
+		
+		# Profile Pic
+		try: 
+			picture = ProfilePic.objects.get(enrollment_number = int(request.user.username))
+			pro_pic = ProfilePicForm(request.POST, request.FILES, instance = picture)
+			if pro_pic.is_valid():
+				pro_pic.save()
+		except:
+			pro_pic = ProfilePicForm(request.POST, request.FILES)
+			if pro_pic.is_valid():
+				pro_pic.save(commit = False)
+				pro_pic.enrollment_number = int(request.user.username)
+				pro_pic.save()
+		
+	else:
+		# Personal Details
+		try:	
+			personal = PersonalDetails.objects.get(enrollment_number = int(request.user.username))
+			formP = PersonalDetailsForms(instance = personal)
+		except:
+			formP = PersonalDetailsForms()
 
-	return render(request, "student/index.html", {"user": curr_user})
+		# Profile Pic
+		try:
+			picture = ProfilePic.objects.get(enrollment_number = int(request.user.username))
+			pro_pic = ProfilePicForm(instance = picture)
+		except:
+			pro_pic = ProfilePicForm()
+
+
+	return render(request, "student/index.html", {"user": curr_user, "formP": formP, "pro_pic": pro_pic})
 
 def account(request):
 	return render(request, "student/student-account.html")

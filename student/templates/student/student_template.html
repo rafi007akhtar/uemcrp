@@ -25,8 +25,17 @@
             <div class="sidebar-header">
                 <h3>Student Menu</h3>
             </div>
-                
-            <img src="#" alt="display picture of student goes here" width="100%" />
+            
+    <form method="post" action="{ url 'student:student_home' }" enctype="multipart/form-data">
+            <!-- <img src="#" alt="Picture not uploaded" width="100%" /> -->
+            <!-- <input type="file" value="Upload image" class="btn btn-block btn-primary" /> -->
+                {% csrf_token %}
+                <img src="{{ pro_pic.pic }}" />
+                {{ pro_pic }}
+                <input type="submit" value="Upload image" class="btn btn-block btn-primary" />
+            </form>
+            
+
 
             <ul class="list-unstyled components">
                 <li class="menu-item active">

@@ -12,3 +12,17 @@ class BasicDetailsForms(forms.ModelForm):
 			"current_semester",
 			"current_section"
 		]
+
+class PersonalDetailsForms(forms.ModelForm):
+	class Meta:
+		model = models.PersonalDetails
+		fields = [
+			"name", "DOB", "gender", 
+			"name_mother", "name_father",
+			"name_guardian", "blood_group"
+		]
+
+class ProfilePicForm(forms.ModelForm):
+	class Meta:
+		model = models.ProfilePic
+		fields = ["pic"]

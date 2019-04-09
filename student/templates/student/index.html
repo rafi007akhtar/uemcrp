@@ -58,10 +58,10 @@
     </form>
     <br>
     
-    <form method="" action="">
+    <form method="post" action="{ url 'student:student_home' }" enctype="multipart/form-data">
         <h2>Personal Details</h2>
         
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" class="form-control" placeholder="[replace by name; this field cannot be edited by student]" disabled />
         </div>
@@ -105,15 +105,16 @@
                 <option value="o+">O+</option>
                 <option value="o-">O-</option>
             </select>
-        </div>
-        
+        </div> -->
+        {% csrf_token %}
+        {{ formP }}
         <div class="form-group text-right">
             <input type="submit" value="Save Changes" class="btn btn-success"/>
         </div>
     </form>
     <br>
     
-    <form method="" action="">
+    <form method="get">
         <h2>Contact details</h2>
         
         <div class="form-group">
@@ -180,7 +181,7 @@
     </form>
     <br>
     
-    <form method="" action="">
+    <form method="get">
         <h2>Academic Details</h2>
         
         <div class="form-group">
@@ -239,7 +240,7 @@
     </form>
     <br>
     
-    <form method="" action="">
+    <form method="get">
         <h2>Other details</h2>
         
         <div class="form-group">
@@ -273,6 +274,11 @@
                 $(this).toggleClass('active');
             });
         });
+
+        $("input[type='text']").addClass("form-control");
+        $("label").prepend("<br>");
+        $("#id_DOB").removeAttr("type");
+        $("#id_DOB").attr("type", "date");
     </script>
 {% endblock %}
 
