@@ -11,10 +11,15 @@
     }
 }
 */
-#body {
-/*    min-height: 100vh;*/
-    width: max-content;
+
+html, body {
+    min-width: 100%;
 }
+
+#body {
+    overflow-x: hidden;
+}
+
 
 .wrapper {
     display: flex;
@@ -103,4 +108,10 @@ ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
     background: #6d7fcc;
+}
+
+#full {
+    width: 100;
+    background-color: red;
+    border: 1px solid;
 }

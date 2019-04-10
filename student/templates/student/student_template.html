@@ -5,7 +5,10 @@
 <html>
     <head>
 		{% block titleblock %} 
-		{% endblock %} 
+        {% endblock %} 
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
        
         <link rel="stylesheet" href="/static/student-style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -88,7 +91,10 @@
                     </div>
                 </nav>
                 
-                <div id="body" class="container-fluid navbar-light bg-light">
+                <div id="body" class="container-fluid content navbar-light bg-light">
+                    <div id="full" style="width: 980px;
+                    background-color: red;
+                    visibility: hidden;">full</div>
                     <!-- REST OF THE BODY GOES HERE -->
 					{% block bodyblock %}
 					{% endblock %}
