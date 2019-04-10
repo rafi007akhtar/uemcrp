@@ -167,9 +167,31 @@ def index(request):
 def account(request):
 	try:
 		personal = PersonalDetails.objects.get(enrollment_number = int(request.user.username))
+		picture = ProfilePic.objects.get(enrollment_number = int(request.user.username))
+		pro_pic = ProfilePicForm(instance = picture)
 	except:
 		pass
-	return render(request, "student/student-account.html", {"personal": personal})
+	return render(request, "student/student-account.html", {"personal": personal, "pro_pic": pro_pic})
+
+def notes(request):
+	if request.method == "POST":
+		formN = NotesForm(request.POST)
+		if formN.is_valid():
+			formN = formN.save(commit = False)
+			formN.enrollment_number = int(request.user.username)
+			formN.save()
+	
+	# other things needed
+	try:
+		personal = PersonalDetails.objects.get(enrollment_number = int(request.user.username))
+		picture = ProfilePic.objects.get(enrollment_number = int(request.user.username))
+		pro_pic = ProfilePicForm(instance = picture)
+		formN = NotesForm()
+		notes = Notes.objects.all()
+	except:
+		pass
+	dici = {"personal": personal, "pro_pic": pro_pic, "formN": formN, "notes": notes}
+	return render(request, "student/student_notes.html", dici)
 
 def logout_view(request):
 	logout(request)

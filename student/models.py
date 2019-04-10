@@ -55,3 +55,8 @@ class OtherDetails(models.Model):
 class ProfilePic(models.Model):
 	enrollment_number = models.IntegerField(default = 0)
 	pic = models.ImageField(blank = True)
+
+class Notes(models.Model):
+	enrollment_number = models.IntegerField(default = 0)
+	title = models.CharField(max_length = 50)
+	body = models.TextField()

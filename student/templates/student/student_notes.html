@@ -1,0 +1,61 @@
+{% extends 'student/student_template.html' %}
+
+{% block titleblock %} 
+    <title>Student Notes</title>
+{% endblock %} 
+
+{% block styleblock %}
+	<style>
+		.endline {
+			border-bottom: 1px solid;
+		}
+	</style>
+{% endblock %}
+
+{% block insertpic %}    
+    <img src="" id="pro-pic" alt="Profile picture" width="100%" />
+    <div style="visibility: hidden;">
+        {{ pro_pic.pic }}
+    </div>
+{% endblock %}
+
+{% block bodyblock %}
+	<h1>Welcome, {{ personal.name }}</h1>
+	
+	<h3 class="endline">Add a new note</h3>
+	<form method="post" action="" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ formN }}
+		<br>
+		<div class="text-right">
+			<input type="submit" value="Add this note" class="btn btn-success" />
+		</div>
+	</form>
+
+	<h3 class="endline">Saved notes</h3>
+	{% for note in notes %}
+		<h4>{{ note.title }}</h4>
+		<p style="color: black;">{{ note.body }}</p>
+		<div style="border-bottom: 1px dashed"></div>
+		<br>
+	{% endfor %}
+{% endblock %}
+
+{% block scriptblock %}
+	<script>
+		$(".active").removeClass("active");
+		$("#sidebar-notes").addClass("active");
+
+		let a = $("a");
+        let a0 = a[0];
+        let proPic = $("#pro-pic");
+        proPic.attr("src", a0.href);
+        a0.innerText = "Click to enlarge";
+        a0.style = "color:green; background-color: white; text-decoration: underline;"
+        $("#pic-clear_id").hide();
+        $("label[for='pic-clear_id'").hide();
+
+		$("input[type=text]").addClass("form-control");
+		$("textarea").addClass("form-control");
+	</script>
+{% endblock %}

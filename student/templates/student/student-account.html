@@ -12,6 +12,13 @@
     </style>
 {% endblock %}
 
+{% block insertpic %}    
+    <img src="" id="pro-pic" alt="Profile picture" width="100%" />
+    <div style="visibility: hidden;">
+        {{ pro_pic.pic }}
+    </div>
+{% endblock %}
+
     
 {% block bodyblock %}
     <h1>Welcome, {{ personal.name }}</h1>
@@ -49,6 +56,15 @@
 
         $(".active").removeClass("active");
         $("#sidebar-account").addClass("active");
+
+        let a = $("a");
+        let a0 = a[0];
+        let proPic = $("#pro-pic");
+        proPic.attr("src", a0.href);
+        a0.innerText = "Click to enlarge";
+        a0.style = "color:green; background-color: white; text-decoration: underline;"
+        $("#pic-clear_id").hide();
+        $("label[for='pic-clear_id'").hide();
         
         function validatePassword() {
             let newpass = $("#newpass");
