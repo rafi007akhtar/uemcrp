@@ -217,6 +217,15 @@ def semester_marks(request):
 	}
 	return render(request, "student/student_semester.html", dici)
 
+def online_test(request):
+	try:
+		personal = PersonalDetails.objects.get(enrollment_number = int(request.user.username))
+		picture = ProfilePic.objects.get(enrollment_number = int(request.user.username))
+		pro_pic = ProfilePicForm(instance = picture)
+	except:
+		pass
+	return render(request, "student/student_online.html", {"personal": personal, "pro_pic": pro_pic})
+
 def logout_view(request):
 	logout(request)
 	return redirect("home")
