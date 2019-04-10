@@ -39,25 +39,16 @@
                 <div>
                     <form method="post">
                         {% csrf_token %}
-                        
-                        <!-- <div class="form-control">
-                            <label for="user-type">Type of user:</label>
-                            <select id="user-type">
-                                <option value="student">Student</option>
-                                <option value="faculty">Faculty</option>
-                                <option value="Accountant">Accountant</option>
-                                <option value="Admin">Admin</option>
-                            </select>
-                        </div>  -->
-
                         {{ form }}
                         
                         <div class="text-center">
                             <br>
-                            <input type="submit" class="btn btn-primary col" />
+                            <input type="submit" class="btn btn-primary col" value="Submit for Student Login" />
                         </div>
                     </form>
                     <br>
+
+                    <strong>Admins.</strong> If you are an admin, please login via <a href="http://127.0.0.1:8000/admin/">this link</a>.
                     
                     <h3>About UEM-CRP</h3>
                     <p>
@@ -71,7 +62,6 @@
                         It includes the number of modules, proved beneficial to achieve the operational and functional efficiencies, monitoring and optimizing the management processes & operations and enhancing coordination across the various departments in the Institution.
                     </p>
                     
-                    Link: <a href="student-home.html">student home</a>
                 </div>
                 <br>
                 
