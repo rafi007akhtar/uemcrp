@@ -11,5 +11,8 @@ admin.site.register(ContactDetails)
 admin.site.register(AcademicDetails)
 admin.site.register(OtherDetails)
 
-## models for student notes
+## model for student notes
 admin.site.register(Notes)
+
+## model for semester marks
+admin.site.register(Semester)

@@ -60,3 +60,8 @@ class Notes(models.Model):
 	enrollment_number = models.IntegerField(default = 0)
 	title = models.CharField(max_length = 50)
 	body = models.TextField()
+
+class Semester(models.Model):
+	enrollment_number = models.IntegerField(default = 0)
+	semester = models.IntegerField(default = 0)
+	average = models.FloatField(default = 0.0)

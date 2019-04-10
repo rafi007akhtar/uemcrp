@@ -1,0 +1,97 @@
+{% extends 'student/student_template.html' %}
+
+{% block titleblock %} 
+    <title>Student Semester Marks</title>
+{% endblock %} 
+
+{% block styleblock %}
+	<style>
+		.endline {
+			border-bottom: 1px solid;
+		}
+	</style>
+{% endblock %}
+
+{% block insertpic %}    
+    <img src="" id="pro-pic" alt="Profile picture" width="100%" />
+    <div style="visibility: hidden;">
+        {{ pro_pic.pic }}
+    </div>
+{% endblock %}
+
+{% block bodyblock %}
+	<h1>Welcome, {{ personal.name }}</h1>
+	
+	<strong>Current semester: </strong> {{ sem }}
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+			<th scope="col">#</th>
+			<th scope="col">Semester</th>
+			<th scope="col">Marks</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+			<th scope="row">1</th>
+			<td>Semester 1</td>
+			<td>{{ one }}</td>
+			</tr>
+			<tr>
+			<th scope="row">2</th>
+			<td>Semester 2</td>
+			<td>{{ two }}</td>
+			</tr>
+			<tr>
+			<th scope="row">3</th>
+			<td>Semester 3</td>
+			<td>{{ three }}</td>
+			</tr>
+			<tr>
+			<th scope="row">4</th>
+			<td>Semester 4</td>
+			<td>{{ four }}</td>
+			</tr>
+			<tr>
+			<th scope="row">5</th>
+			<td>Semester 5</td>
+			<td>{{ five }}</td>
+			</tr>
+			<tr>
+			<th scope="row">6</th>
+			<td>Semester 6</td>
+			<td>{{ six }}</td>
+			</tr>
+			<tr>
+			<th scope="row">7</th>
+			<td>Semester 7</td>
+			<td>{{ seven }}</td>
+			</tr>
+			<tr>
+			<th scope="row">8</th>
+			<td>Semester 8</td>
+			<td>{{ eight }}</td>
+			</tr>
+		</tbody>
+	</table>
+{% endblock %}
+
+{% block scriptblock %}
+	<script>
+		$(".active").removeClass("active");
+		$("#sidebar-sem").addClass("active");
+
+		let a = $("a");
+        let a0 = a[0];
+        let proPic = $("#pro-pic");
+        proPic.attr("src", a0.href);
+        a0.innerText = "Click to enlarge";
+        a0.style = "color:green; background-color: white; text-decoration: underline;"
+        $("#pic-clear_id").hide();
+        $("label[for='pic-clear_id'").hide();
+
+		$("input[type=text]").addClass("form-control");
+		$("textarea").addClass("form-control");
+	</script>
+{% endblock %}

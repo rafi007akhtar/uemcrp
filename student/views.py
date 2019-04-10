@@ -187,11 +187,35 @@ def notes(request):
 		picture = ProfilePic.objects.get(enrollment_number = int(request.user.username))
 		pro_pic = ProfilePicForm(instance = picture)
 		formN = NotesForm()
-		notes = Notes.objects.all()
+		notes = Notes.objects.all().filter(enrollment_number = int(request.user.username))
 	except:
 		pass
 	dici = {"personal": personal, "pro_pic": pro_pic, "formN": formN, "notes": notes}
 	return render(request, "student/student_notes.html", dici)
+
+def semester_marks(request):
+	try:
+		basic = BasicDetails.objects.get(enrollment_number = int(request.user.username))
+		personal = PersonalDetails.objects.get(enrollment_number = int(request.user.username))
+		picture = ProfilePic.objects.get(enrollment_number = int(request.user.username))
+		pro_pic = ProfilePicForm(instance = picture)
+
+		# semester marks
+		sems = Semester.objects.all().filter(enrollment_number = int(request.user.username))
+		averages = [sem.average for sem in sems]
+		for i in range(8-len(averages)):
+			averages.append("NA")
+		print(averages)
+	except:
+		pass
+	sem = basic.current_semester
+	dici = {
+		"sem": sem, "personal": personal, "pro_pic": pro_pic, 
+		"one": averages[0], "two": averages[1], "three": averages[2],
+		"four": averages[3], "five": averages[4], "six": averages[5],
+		"seven": averages[6], "eight": averages[7]
+	}
+	return render(request, "student/student_semester.html", dici)
 
 def logout_view(request):
 	logout(request)
