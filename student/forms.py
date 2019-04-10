@@ -36,3 +36,21 @@ class ContactDetailsForm(forms.ModelForm):
 			"permanent_address", "guardian_email",
 			"guardian_mobile", "guardian_relation"
 		]
+
+class AcademicDetailsForm(forms.ModelForm):
+	class Meta:
+		model = models.AcademicDetails
+		fields = [
+			"course_id", "tenth_school_name",
+			"tenth_board_percentage", "tenth_year_of_passing",
+			"tenth_board_name", "twelfth_school_name",
+			"twelfth_board_percentage", "twelfth_year_of_passing",
+			"twelfth_board_name"
+		]
+
+class OtherDetailsForm(forms.ModelForm):
+	class Meta:
+		model = models.OtherDetails
+		fields = [
+			"aadhar_number", "category"
+		]

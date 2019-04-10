@@ -190,10 +190,10 @@
     </form>
     <br>
     
-    <form method="get">
+    <form method="post" action="{ url 'student:student_home' }" enctype="multipart/form-data">
         <h2>Academic Details</h2>
         
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="stream-id">Stream id</label>
             <input type="number" id="stream-id" class="form-control"  placeholder="[replace by stream id; this field cannot be chaneged by student]" disabled />
         </div>
@@ -241,18 +241,19 @@
         <div class="form-group">
             <label for="twelve-board">12th board name</label>
             <input type="text" id="twelve-board" class="form-control"  placeholder="[replace by 12th board name]" />
-        </div>
-        
+        </div> -->
+        {% csrf_token %}
+        {{ formA }}
         <div class="form-group text-right">
             <input type="submit" value="Save Changes" class="btn btn-success"/>
         </div>
     </form>
     <br>
     
-    <form method="get">
+    <form method="post" action="{ url 'student:student_home' }" enctype="multipart/form-data">
         <h2>Other details</h2>
         
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="aadhar">Aadhar number</label>
             <input type="numbber" id="aadhar" class="form-control"  placeholder="[replace by aadhar number]" />
         </div>
@@ -265,8 +266,10 @@
                 <option value="obc">OBC</option>
                 <option value="scst">SC / ST</option>
             </select>
-        </div>
+        </div> -->
         
+        {% csrf_token %}
+        {{ formO }}
         <div class="form-group text-right">
             <input type="submit" value="Save Changes" class="btn btn-success"/>
         </div>
@@ -277,12 +280,7 @@
         
 {% block scriptblock %}
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-                $(this).toggleClass('active');
-            });
-        });
+        
 
         let name = $("#id_name").attr("value");
         $("#display-name").text(name);
@@ -293,6 +291,8 @@
         $("label").prepend("<br>");
         $("#id_DOB").removeAttr("type");
         $("#id_DOB").attr("type", "date");
+
+        // $("#id_course_id").attr("disabled", "true");
 
         let a = $("a");
         let a0 = a[0];

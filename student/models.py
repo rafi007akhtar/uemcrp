@@ -34,6 +34,23 @@ class ContactDetails(models.Model):
 	guardian_mobile = models.IntegerField()
 	guardian_relation = models.CharField(max_length = 20)
 
+class AcademicDetails(models.Model):
+	enrollment_number = models.IntegerField(default = 0)
+	course_id = models.CharField(max_length = 10, default = "CS101")
+	tenth_school_name = models.CharField(max_length = 100)
+	tenth_board_percentage = models.IntegerField(default = 0)
+	tenth_year_of_passing = models.IntegerField()
+	tenth_board_name = models.CharField(max_length = 50)
+	twelfth_school_name = models.CharField(max_length = 100)
+	twelfth_board_percentage = models.IntegerField(default = 0)
+	twelfth_year_of_passing = models.IntegerField()
+	twelfth_board_name = models.CharField(max_length = 50)
+
+class OtherDetails(models.Model):
+	enrollment_number = models.IntegerField(default = 0)
+	aadhar_number = models.CharField(max_length = 20)
+	category = models.CharField(max_length = 3)
+
 
 class ProfilePic(models.Model):
 	enrollment_number = models.IntegerField(default = 0)

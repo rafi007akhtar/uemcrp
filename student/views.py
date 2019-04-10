@@ -78,6 +78,36 @@ def index(request):
 				formC.enrollment_number = int(request.user.username)
 				formC.save()
 		
+		# Academic Details
+		try:
+			acad = AcademicDetails.object.get(enrollment_number = int(request.user.username))
+			formA = AcademicDetailsForm(request.POST, instance = acad)
+			print("here")
+			if formA.is_valid():
+				# acad.delete()
+				formA.save()
+		except:
+			formA = AcademicDetailsForm(request.POST)
+			if formA.is_valid():
+				formA = formA.save(commit = False)
+				formA.enrollment_number = int(request.user.username)
+				print(f"{formA.enrollment_number}, {type(formA.enrollment_number)}, {request.user.username}, {type(request.user.username)}")
+				formA.save()
+		
+		# Other Details
+		try:
+			others = OtherDetails(enrollment_number = int(request.user.username))
+			formO = OtherDetailsForm(request.POST, instance = others)
+			if formO.is_valid():
+				others.delete()
+				formO.save()
+		except:
+			formO = OtherDetailsForm(request.POST)
+			if formO.is_valid():
+				formO = formO.save(commit = False)
+				formO.enrollment_number = int(request.user.username)
+				formO.save()
+		
 		# Profile Pic
 		try: 
 			picture = ProfilePic.objects.get(enrollment_number = int(request.user.username))
@@ -113,11 +143,33 @@ def index(request):
 		except:
 			formC = ContactDetailsForm()
 
-	dici = {"user": curr_user, "formP": formP, "pro_pic": pro_pic, "formC": formC}
+		# Academic Details
+		try:
+			acad = AcademicDetails.objects.get(enrollment_number = int(request.user.username))
+			formA = AcademicDetailsForm(instance = acad)
+		except:
+			formA = AcademicDetailsForm()
+
+		# Other Details
+		try:
+			others = OtherDetails.objects.get(enrollment_number = int(request.user.username))
+			print(others)
+			formO = OtherDetailsForm(instance = others)
+		except:
+			formO = OtherDetailsForm()
+
+	dici = {
+		"user": curr_user, "formP": formP, "pro_pic": pro_pic, "formC": formC,
+		"formA": formA, "formO": formO
+	}
 	return render(request, "student/index.html", dici)
 
 def account(request):
-	return render(request, "student/student-account.html")
+	try:
+		personal = PersonalDetails.objects.get(enrollment_number = int(request.user.username))
+	except:
+		pass
+	return render(request, "student/student-account.html", {"personal": personal})
 
 def logout_view(request):
 	logout(request)
