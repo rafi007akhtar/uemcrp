@@ -1,0 +1,89 @@
+{% extends 'student/student_template.html' %}
+
+{% block titleblock %} 
+    <title>Student Notes</title>
+{% endblock %} 
+
+{% block styleblock %}
+	<style>
+		.endline {
+			border-bottom: 1px solid;
+		}
+	</style>
+{% endblock %}
+
+{% block insertpic %}    
+    <img src="" id="pro-pic" alt="Profile picture" width="100%" />
+    <div style="visibility: hidden;">
+        {{ pro_pic.pic }}
+    </div>
+{% endblock %}
+
+{% block bodyblock %}
+	<h1>Welcome, {{ personal.name }}</h1>
+	
+	Displaying attendance for this month
+	<table class="table table-striped">
+			<thead>
+				<tr>
+				<th scope="col">#</th>
+				<th scope="col">Date</th>
+				<th scope="col">Attendance</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- ATTENDANCE GOES HERE -->
+			</tbody>
+	</table>
+
+	<strong class="endline">Legends</strong>
+	<ul>
+		<li><strong>P:</strong> Present</li>
+		<li><strong>A:</strong> Absent</li>
+		<li><strong>-:</strong> NA</li>
+	</ul>
+
+{% endblock %}
+
+{% block scriptblock %}
+	<script>
+		$(".active").removeClass("active");
+		$("#sidebar-attendance").addClass("active");
+
+		let a = $("a");
+        let a0 = a[0];
+        let proPic = $("#pro-pic");
+        proPic.attr("src", a0.href);
+        a0.innerText = "Click to enlarge";
+        a0.style = "color:green; background-color: white; text-decoration: underline;"
+        $("#pic-clear_id").hide();
+        $("label[for='pic-clear_id'").hide();
+
+		$("input[type=text]").addClass("form-control");
+		$("textarea").addClass("form-control");
+
+		// attendance
+		let now = new Date();
+		let month = now.getMonth();
+		// console.log(month);
+		let days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+		let myDays = days[month];
+		console.log(myDays);
+		let date = now.getDate();
+		console.log(date);
+		let attendance = [];
+		for (i = 0; i < date; i++)
+		{
+			let determine = Math.random();
+			if (determine < 0.5)
+				attendance.push("A");
+			else
+				attendance.push("P");
+		}
+		console.log(attendance);
+		for (let i = 0; i < date; i++)
+			$("tbody").append("<tr> <td>" + (i+1) + "</td> <td>" + (i+1) + "</td> <td>" + attendance[i] + "</td></tr>")
+		for (let i = date; i < myDays; i++)
+			$("tbody").append("<tr> <td>" + (i+1) + "</td> <td>" + (i+1) + "</td> <td> - </td></tr>")
+	</script>
+{% endblock %}

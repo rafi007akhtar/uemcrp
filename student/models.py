@@ -65,3 +65,8 @@ class Semester(models.Model):
 	enrollment_number = models.IntegerField(default = 0)
 	semester = models.IntegerField(default = 0)
 	average = models.FloatField(default = 0.0)
+
+class Assignment(models.Model):
+	semester = models.IntegerField(default = 0)
+	section = models.CharField(max_length = 2)
+	assignment = models.FileField()

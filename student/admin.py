@@ -16,3 +16,6 @@ admin.site.register(Notes)
 
 ## model for semester marks
 admin.site.register(Semester)
+
+## model for assignments
+admin.site.register(Assignment)

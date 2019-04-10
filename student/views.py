@@ -226,6 +226,31 @@ def online_test(request):
 		pass
 	return render(request, "student/student_online.html", {"personal": personal, "pro_pic": pro_pic})
 
+def attendance(request):
+	try:
+		personal = PersonalDetails.objects.get(enrollment_number = int(request.user.username))
+		picture = ProfilePic.objects.get(enrollment_number = int(request.user.username))
+		pro_pic = ProfilePicForm(instance = picture)
+	except:
+		pass
+	return render(request, "student/student_attendance.html", {"personal": personal, "pro_pic": pro_pic})
+
+def assignment(request):
+	try:
+		personal = PersonalDetails.objects.get(enrollment_number = int(request.user.username))
+		picture = ProfilePic.objects.get(enrollment_number = int(request.user.username))
+		pro_pic = ProfilePicForm(instance = picture)
+
+		# will be needed for assignment
+		basic = BasicDetails.objects.get(enrollment_number = int(request.user.username))
+		sem = basic.current_semester
+		sec = basic.current_section
+		assignments = Assignment.objects.all().filter(semester=sem, section=sec)
+	except:
+		pass
+	dici = {"personal": personal, "pro_pic": pro_pic, "assignments": assignments}
+	return render(request, "student/student_assignment.html", dici)
+
 def logout_view(request):
 	logout(request)
 	return redirect("home")
