@@ -251,6 +251,16 @@ def assignment(request):
 	dici = {"personal": personal, "pro_pic": pro_pic, "assignments": assignments}
 	return render(request, "student/student_assignment.html", dici)
 
+def payment(request):
+	try:
+		personal = PersonalDetails.objects.get(enrollment_number = int(request.user.username))
+		picture = ProfilePic.objects.get(enrollment_number = int(request.user.username))
+		pro_pic = ProfilePicForm(instance = picture)
+	except:
+		pass
+	return render(request, "student/student_payment.html", {"personal": personal, "pro_pic": pro_pic})
+
+
 def logout_view(request):
 	logout(request)
 	return redirect("home")

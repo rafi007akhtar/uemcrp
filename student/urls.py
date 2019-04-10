@@ -15,6 +15,7 @@ urlpatterns = [
 	url(r"^attendance", views.attendance, name="student_attendance"),
 	url(r"^assignment/", views.assignment, name="student_assignment"),
 	url(r"^notes/", views.notes, name="student_notes"),
+	url(r"^payment/", views.payment, name="student_payment"),
 	url(r"^logout/$", views.logout_view, name="student_logout")
 ]
 
