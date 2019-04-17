@@ -70,3 +70,11 @@ class Assignment(models.Model):
 	semester = models.IntegerField(default = 0)
 	section = models.CharField(max_length = 2)
 	assignment = models.FileField()
+
+class Test(models.Model):
+	title = models.CharField(max_length = 50, default = "UEMCRP Test")
+	semester = models.IntegerField(default = 0)
+	test_url = models.URLField(max_length = 1000)
+	result_url = models.URLField(max_length = 1000)
+	is_open = models.BooleanField(default = False)
+	result = models.CharField(default = "NA", max_length = 100)

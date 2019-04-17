@@ -19,3 +19,6 @@ admin.site.register(Semester)
 
 ## model for assignments
 admin.site.register(Assignment)
+
+## model for online tests
+admin.site.register(Test)

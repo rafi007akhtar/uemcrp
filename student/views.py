@@ -217,14 +217,43 @@ def semester_marks(request):
 	}
 	return render(request, "student/student_semester.html", dici)
 
+import pandas as pd
 def online_test(request):
 	try:
 		personal = PersonalDetails.objects.get(enrollment_number = int(request.user.username))
 		picture = ProfilePic.objects.get(enrollment_number = int(request.user.username))
 		pro_pic = ProfilePicForm(instance = picture)
-	except:
-		pass
-	return render(request, "student/student_online.html", {"personal": personal, "pro_pic": pro_pic})
+
+		# online test
+		user = BasicDetails.objects.all().filter(enrollment_number = int(request.user.username))
+		sem = user[0].current_semester
+		tests = Test.objects.all().filter(semester = sem, is_open = True)
+
+		# read result spreadsheet
+		for test in tests:
+			sheet_url = str(test.result_url)
+			link_url = sheet_url.replace('/edit#gid=', '/export?format=csv&gid=')
+			df = pd.read_csv(link_url)
+
+			# if no test has been taken yet, break the loop
+			if df.shape[0] == 0:
+				break
+
+			# skip if test is not taken by the current user
+			enrol = df['Enrollment number'][0]
+			if enrol != int(request.user.username):
+				continue
+
+			# otherwise, retrive the test scores and save them	
+			score = df['Score']
+			test.result = score[0]
+			test.save()
+		
+		dici = {"personal": personal, "pro_pic": pro_pic, "tests": tests}
+	except Exception as e:
+		print("Exception:")
+		print(e)
+	return render(request, "student/student_online.html", dici)
 
 def attendance(request):
 	try:

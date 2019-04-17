@@ -22,7 +22,13 @@
 {% block bodyblock %}
 	<h1>Welcome, {{ personal.name }}</h1>
 	
-	Currently, you do not have any online test.
+	<h3 class="endline">Currently open tests</h3>
+
+	{% for test in tests %}
+		Test name: <strong>{{ test.title }}</strong> <br />
+		Test link: <strong>[ <a href="{{ test.test_url }}" target="_blank">Link</a> ]</strong> <br>
+		Result: <strong>{{ test.result }}</strong>
+	{% endfor %}
 {% endblock %}
 
 {% block scriptblock %}
